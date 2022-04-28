@@ -1,10 +1,10 @@
 object Main extends App {
  
-  var inputString: String = "bigShift";
-  var shifts: Int = 10000;
+  val inputString: String = "bigShift";
+  val shifts: Int = 10000;
   
-  var ciphered: String = encrypt(inputString, shifts);
-  var deciphered: String = decrypt(ciphered, shifts);
+  val ciphered: String = encrypt(inputString, shifts);
+  val deciphered: String = decrypt(ciphered, shifts);
   
   println("Encrypt: " + inputString + " => " + ciphered);
   println("Decrypt: " + ciphered + " => " + deciphered);
@@ -20,13 +20,13 @@ object Main extends App {
     // handle negative shift amount
     if (k < 0) k = 26 - (k * -1);
 
-    return strIn.map(c => {
+    return strIn.map(el => {
 
       // correct for capitalization
-      asciiHead = if (c.toInt > 90) 97 else 65;
+      asciiHead = if (el.toInt > 90) 97 else 65;
 
       // algo and convert to char
-      (asciiHead + ((c.toInt + k - asciiHead) % 26)).toChar;
+      (asciiHead + ((el.toInt + k - asciiHead) % 26)).toChar;
     })
   }
 

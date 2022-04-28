@@ -27,7 +27,7 @@ const solve = (strIn, itr) => {
 
   itr++;
 
-  console.log(`${itr}: ${strIn}`);
+  console.log(`Solve: ${itr}: ${strIn}`);
   solve(decrypt(strIn, 1), itr);
 };
 

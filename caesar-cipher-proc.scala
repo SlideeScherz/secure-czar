@@ -2,6 +2,7 @@ object Main extends App {
  
   var inputString: String = "HelloWorld";
   var shifts: Int = 4;
+  
   var ciphered: String = encrypt(inputString, shifts);
   var deciphered: String = encrypt(ciphered, 26 - shifts);
 
