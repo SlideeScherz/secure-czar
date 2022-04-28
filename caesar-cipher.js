@@ -31,12 +31,21 @@ const solve = (strIn, itr) => {
   solve(decrypt(strIn, 1), itr);
 };
 
-const inputString = "helloWorld";
-const shifts = 4;
+// obj for test cases to parse
+const cases = [
+  { strIn: "helloWorld", shifts: 4 },
+  { strIn: "alwaysLookOnTheBrightSideOfLife", shifts: 5 },
+  { strIn: "bigShift", shifts: 10000 },
+];
 
-const ciphered = encrypt(inputString, shifts);
-const deciphered = decrypt(ciphered, shifts);
+// call all methods to the cases
+cases.forEach((el, index) => {
+  console.log(`Case ${index + 1}: ${el.strIn}, shifts = ${el.shifts}`);
 
-console.log(`Encrypt: ${inputString} => ${ciphered}`);
-console.log(`Dencrypt: ${ciphered} => ${deciphered}`);
-solve(ciphered, 0);
+  const ciphered = encrypt(el.strIn, el.shifts);
+  const deciphered = decrypt(ciphered, el.shifts);
+
+  console.log(`Encrypted: ${el.strIn} => ${ciphered}`);
+  console.log(`Dencrypted: ${ciphered} => ${deciphered}`);
+  solve(ciphered, 0);
+});

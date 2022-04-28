@@ -10,8 +10,9 @@ Functional and procedural implementations of a caesar cipher
 
 ### Cipher
 
-Encode a String messge by offsetting each charactar by an amount specified by ```k```
-Get the ASCII value of each Character ```(key)``` , then perform the following algorithm on each which handles overflow of alphabet
+Encode a String messge by offsetting each charactar by an amount specified by `k`
+Get the ASCII value of each Character `(key)` , 
+then perform the following algorithm on each which handles overflow of alphabet
 
 ```c
 //uppercase or lowercase logic
@@ -23,8 +24,9 @@ int key = ((key + k - asciiHead) % 26) + asciiHead;
 #### Decipher
 
 Decode an encrypted string
-Use the same algorithm as Cipherm but change parameter ```k``` to
-```26 - k```
+Use the same algorithm as Cipherm but change parameter `k` to
+`26 - k`
+
 ```c
 string ciphered = caesarCipher(inputString, shifts);
 string deciphered = caesarCipher(ciphered, 26 - shifts);
@@ -37,7 +39,7 @@ Test shifts 0-26 to identify legible English
 ```c
 function solve(s){
   for (let i = 1; i < 26; i++) {
-    console.log(`Shift ${i}: ${caesarCipher(s, 26 - i)}`); 
+    console.log(`Shift ${i}: ${caesarCipher(s, 26 - i)}`);
   }
 }
 ```
@@ -89,7 +91,6 @@ Shift 25: oczLpdxfWmjriAjsEphkzyJqzmOczGvutYjb
 
 ### MIT
 
-[//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
-
-[IDEone]: <https://ideone.com/>
-[Repo]: <https://github.com/SlideeScherz/programming-in-the-past/pulls>  
+[//]: # "These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax"
+[ideone]: https://ideone.com/
+[repo]: https://github.com/SlideeScherz/programming-in-the-past/pulls
