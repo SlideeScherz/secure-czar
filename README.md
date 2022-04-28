@@ -1,6 +1,8 @@
-# Programming In the past
+# secure-czar
 
 _To enjoy simple programming done in a variety of early procedural programming languages._
+
+Functional and procedural implementations of a caesar cipher
 
 ## Caesar Cipher encryption
 
