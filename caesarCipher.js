@@ -1,11 +1,8 @@
-const inputString = "helloWorld";
-const shifts = 4;
-
 // handle large shift
 const shiftNum = (nShift) => (nShift > 26 ? nShift % 26 : nShift);
 
 // determine case
-const gCase = (key) => (key.charCodeAt(0) <= 90 ? 65 : 97);
+const getCase = (key) => (key.charCodeAt(0) <= 90 ? 65 : 97);
 
 // input a string to be encrypted with a caesar cipher
 const encrypt = (strIn, nShift) => {
@@ -13,7 +10,7 @@ const encrypt = (strIn, nShift) => {
     .map((el) => {
       // cipher and convert to string
       return String.fromCharCode(
-        gCase(el) + ((el.charCodeAt(0) + shiftNum(nShift) - gCase(el)) % 26)
+        getCase(el) + ((el.charCodeAt(0) + shiftNum(nShift) - getCase(el)) % 26)
       );
     })
     .join(""); // convert back to string
@@ -24,7 +21,7 @@ const decrypt = (strIn, nShift) => {
   return encrypt(strIn, 26 - shiftNum(nShift));
 };
 
-// call encrypt untill we can see some readable english
+// call encrypt untill readable english is recognized
 const solve = (strIn, itr) => {
   if (itr === 26) return;
 
@@ -33,6 +30,9 @@ const solve = (strIn, itr) => {
   console.log(`${itr}: ${strIn}`);
   solve(decrypt(strIn, 1), itr);
 };
+
+const inputString = "helloWorld";
+const shifts = 4;
 
 const ciphered = encrypt(inputString, shifts);
 const deciphered = decrypt(ciphered, shifts);
