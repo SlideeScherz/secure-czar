@@ -1,7 +1,7 @@
 ﻿open System
 
-let shiftNum = 4
 let inputString = "HelloWorld"
+let shiftNum = 4
 
 // perform cipher on one char, convert back to char
 let ciph key num head =
