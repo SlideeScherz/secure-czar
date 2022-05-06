@@ -41,17 +41,17 @@ Use the same algorithm as Cipherm but change parameter `k` to
 `26 - k`
 
 ```js
-const deciphered = caesarCipher(cipherOutput, 26 - shifts);
+const deciphered = cipher(cipherOutput, 26 - shifts);
 ```
 
 #### Solve
 
 Test shifts 0-26 to identify legible English
 
-```c
-function solve(s){
+```js
+function solve(strIn) {
   for (let i = 1; i < 26; i++) {
-    console.log(`Shift ${i}: ${caesarCipher(s, 26 - i)}`);
+    cipher(strIn, 26 - i);
   }
 }
 ```
