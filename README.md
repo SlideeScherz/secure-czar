@@ -6,19 +6,32 @@ Functional and procedural implementations of a caesar cipher
 
 ## Caesar Cipher encryption
 
-![alt text](https://media.geeksforgeeks.org/wp-content/uploads/ceaserCipher.png)
+Encode a String messge by offsetting each charactar by an amount specified by `k`
+
+![img](https://media.geeksforgeeks.org/wp-content/uploads/ceaserCipher.png)
 
 ### Cipher
 
-Encode a String messge by offsetting each charactar by an amount specified by `k`
-Get the ASCII value of each Character `(key)` , 
-then perform the following algorithm on each which handles overflow of alphabet
+1. Get the ASCII value of each Character `key`
 
-```c
-//uppercase or lowercase logic
-int asciiHead = (key >= 65 && key <= 90) ? 65 : 97;
-//algo to cipher
-int key = ((key + k - asciiHead) % 26) + asciiHead;
+```js
+const asciiCodes = [...strIn].map((char) => char.charCodeAt(0));
+```
+
+2. Determine the case of the character
+
+```js
+const caseOf = (key) => (key <= 90 ? 65 : 97);
+```
+
+3. then perform the following algorithm on char which
+
+- shifts the character by `k`
+- handles overflow of alphabet
+
+```js
+const shift = (key, num) =>
+  caseOf(key) + ((key + shiftN(num) - caseOf(key)) % 26);
 ```
 
 #### Decipher
@@ -27,9 +40,8 @@ Decode an encrypted string
 Use the same algorithm as Cipherm but change parameter `k` to
 `26 - k`
 
-```c
-string ciphered = caesarCipher(inputString, shifts);
-string deciphered = caesarCipher(ciphered, 26 - shifts);
+```js
+const deciphered = caesarCipher(cipherOutput, 26 - shifts);
 ```
 
 #### Solve
@@ -89,8 +101,7 @@ Shift 25: oczLpdxfWmjriAjsEphkzyJqzmOczGvutYjb
 
 ## License
 
-### MIT
+MIT 2022
 
-[//]: # "These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax"
 [ideone]: https://ideone.com/
 [repo]: https://github.com/SlideeScherz/programming-in-the-past/pulls
