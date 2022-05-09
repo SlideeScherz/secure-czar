@@ -33,7 +33,7 @@ const solve = (strIn, itr) => {
 };
 
 const inputString = "helloWorld";
-const shifts = 4;
+const shifts = 7;
 const ciphered = encrypt(inputString, shifts);
 const deciphered = decrypt(ciphered, shifts);
 
